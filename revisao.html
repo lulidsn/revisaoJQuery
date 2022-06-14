@@ -1,0 +1,160 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="jquery-ui.css">
+        <script src="jquery.js"></script>
+        <script src="jquery-ui.js"></script>
+            <script>
+                $(function(){
+                    $("#tabs").tabs();
+                });
+            </script>
+
+            <style>
+                .impar{
+                    background: silver;
+                }
+                .par{
+                    background: cyan;
+                }
+                .destacar{
+                    background: purple;
+                    color: black;
+                }
+            </style>
+    </head>
+
+    <body>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs1">DATEPICKER</a></li>
+                <li><a href="#tabs2">TABELA COLORIDA</a></li>
+                <li><a href="#tabs3">ACCORDION</a></li>
+                <li><a href="#tabs4">LEGENDA 1</a></li>
+                <li><a href="#tabs5">LEGENDA 2</a></li>
+            </ul>
+    
+        <div id="tabs1">
+            <h2 style="font-family: arial;">DatePicker</h2>
+                <p><input type="text" id="data"></p>
+                    <script>
+                        $("#data").datepicker({
+                            showButtonPane1: true,
+                            changeMonth: true,
+                            changeYear: true,
+                            dateFormat: "dd/mm/yy"
+                        });
+                    </script>
+        </div>
+
+        <div id="tabs2">
+            <table id="horario" style="border: solid;">
+                <h1>Exemplo tabela 1</h1>
+                <caption>EXEMPLO TABELA</caption>
+                    <thead>
+                        <tr>
+                            <th>Saída</th>
+                            <th>Chegada</th>
+                            <th>Classe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11:00</td>
+                            <td>11:30</td>
+                            <td>VIP</td>
+                        </tr>
+
+                        <tr>
+                            <td>11:30</td>
+                            <td>12:00</td>
+                            <td>Casual</td>
+                        </tr>
+
+                        <tr>
+                            <td>11:00</td>
+                            <td>11:30</td>
+                            <td>VIP</td>
+                        </tr>
+
+                        <tr>
+                            <td>11:30</td>
+                            <td>12:00</td>
+                            <td>Casual</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <td colspan="3">Válida para o período de 14/06/2022 até 30/06/2022</td>
+                    </tfoot>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                $('table#horario tbody tr:odd').addClass('impar');
+                                $('table#horario tbody tr:even').addClass('par');
+                                $('table#horario tbody tr').hover(
+                                    function(){
+                                        $(this).addClass('destacar');
+                                    },
+                                    function(){
+                                        $(this).removeClass('destacar')
+                                    });
+                            });
+                        </script>
+            </table>
+        </div>
+
+            <div id="tabs3">
+                <script>
+                    $(function(){
+                        $("#accordion").accordion();0
+                    });
+                </script>
+
+                <div id="accordion" style="width: 500px;">
+                    <h3>Informática</h3>
+                        <div>
+                            <p>jawsjfkwo</p>
+                        </div>
+                    <h3>sjhfavfna</h3>
+                        <div>
+                            <p>cfhnaolvfb</p>
+                        </div>
+                </div>
+            </div>
+
+            <div id="tabs4">
+                <h1>Legenda tipo 1</h1>
+                    <p>Escola</p>
+                    <input id="leg1" title="Começa com EEEP">
+                        <script>
+                            $(document).ready(function(){
+                                $('#leg1').tooltip();
+                            })
+                        </script>
+            </div>
+            <div id="tabs5">
+                <h1>Legenda tipo 2</h1>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                $('.dica + span').css({
+                                    display: 'none',
+                                    padding: '2px 4px',
+                                    background: 'pink',
+                                    marginLeft: '10px'
+                                });
+                            //aparece o span devagar
+                            $('.dica').focus(function(){
+                                $(this).next().fadeIn(1500);
+                            //desaparece o span devagar
+                            }).blur(function(){
+                                $(this).next().fadeOut(500);
+                            });
+                            });
+                        </script>
+                        <input type="text" class="dica"> 
+                        <span>SOMENTE NÚMEROS</span>
+                            <br><br>
+                        <input type="text" class="dica">
+                        <span>DIGITE A DATA</span>
+            </div>
+        </div>
+    </body>
+</html>
